@@ -23,10 +23,7 @@ export function ProductDetail() {
 
     const categoryName = categories.find(c => c.id === product.category)?.name;
 
-    const handleWhatsAppClick = () => {
-        const message = `Hola Samuel, mi nombre es ... y te consulto por el producto: ${product.name} (COD: ${product.id})`;
-        window.open(`https://api.whatsapp.com/send?phone=543758436120&text=${encodeURIComponent(message)}`, '_blank');
-    };
+
 
     return (
         <div className="container mx-auto px-4 py-8">
@@ -77,7 +74,7 @@ export function ProductDetail() {
                             </p>
                         </div>
 
-                        <div className="mt-auto space-y-4">
+                        <div className="mt-auto">
                             <div className="flex items-center gap-4">
                                 <div className="flex items-center border border-gray-300 rounded-md">
                                     <button
@@ -102,13 +99,6 @@ export function ProductDetail() {
                                     Agregar al Carrito
                                 </button>
                             </div>
-
-                            <button
-                                onClick={handleWhatsAppClick}
-                                className="w-full block text-center border-2 border-[#25D366] text-[#25D366] font-bold py-3 px-6 rounded-full hover:bg-[#25D366] hover:text-white transition-all transform hover:-translate-y-0.5"
-                            >
-                                Consultar por WhatsApp
-                            </button>
                         </div>
 
                         <div className="mt-8 grid grid-cols-3 gap-4 border-t pt-6">
