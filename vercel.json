@@ -1,7 +1,4 @@
 {
-    "projectSettings": {
-        "rootDirectory": "web"
-    },
     "rewrites": [
         {
             "source": "/(.*)",
