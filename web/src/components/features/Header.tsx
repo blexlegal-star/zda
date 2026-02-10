@@ -1,13 +1,23 @@
 import { Search, ShoppingCart, Menu } from 'lucide-react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { useCartStore } from '@/hooks/useCartStore';
 
 export function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('');
+    const navigate = useNavigate();
     const { toggleCart, items } = useCartStore();
     const itemCount = items.reduce((acc, item) => acc + item.quantity, 0);
+
+    const handleSearch = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (searchTerm.trim()) {
+            navigate(`/productos?search=${encodeURIComponent(searchTerm)}`);
+            setIsMenuOpen(false);
+        }
+    };
 
     return (
         <header className="sticky top-0 z-50 bg-white shadow-sm font-sans">
@@ -29,11 +39,12 @@ export function Header() {
                 </div>
 
                 {/* Search Bar - Desktop */}
-                <form onSubmit={(e) => { e.preventDefault(); window.location.href = `/productos?search=${encodeURIComponent(isMenuOpen ? '' : (document.getElementById('desktop-search') as HTMLInputElement)?.value || '')}`; }} className="hidden md:flex flex-1 max-w-xl mx-4 relative">
+                <form onSubmit={handleSearch} className="hidden md:flex flex-1 max-w-xl mx-4 relative">
                     <input
-                        id="desktop-search"
                         type="text"
                         placeholder="Buscar repuestos..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
                         className="w-full border border-gray-300 rounded-l-full px-6 py-2 focus:outline-none focus:ring-2 focus:ring-primary/50"
                     />
                     <button type="submit" className="bg-primary text-white px-6 py-2 rounded-r-full hover:bg-primary/90 transition-colors">
@@ -65,11 +76,12 @@ export function Header() {
 
             {/* Mobile Menu & Search */}
             <div className={cn("md:hidden px-4 py-3 bg-gray-50 border-t", isMenuOpen ? "block" : "hidden")}>
-                <form onSubmit={(e) => { e.preventDefault(); window.location.href = `/productos?search=${encodeURIComponent((document.getElementById('mobile-search') as HTMLInputElement)?.value || '')}`; setIsMenuOpen(false); }} className="flex mb-4">
+                <form onSubmit={handleSearch} className="flex mb-4">
                     <input
-                        id="mobile-search"
                         type="text"
                         placeholder="Buscar..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
                         className="w-full border border-gray-300 rounded-l-md px-4 py-2 focus:outline-none"
                     />
                     <button type="submit" className="bg-primary text-white px-4 py-2 rounded-r-md">

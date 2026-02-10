@@ -19,7 +19,7 @@ export function Footer() {
                         <ul className="space-y-2 text-sm text-gray-600">
                             <li><Link to="/" className="hover:text-primary">Inicio</Link></li>
                             <li><Link to="/productos" className="hover:text-primary">Productos</Link></li>
-                            <li><Link to="/contacto" className="hover:text-primary">Contacto</Link></li>
+                            <li><a href="https://api.whatsapp.com/send?phone=543758436120" target="_blank" rel="noopener noreferrer" className="hover:text-primary">Contacto</a></li>
                         </ul>
                     </div>
 
