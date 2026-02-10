@@ -17,9 +17,9 @@ export function Footer() {
                     <div>
                         <h3 className="font-bold text-gray-900 mb-4">Enlaces Rápidos</h3>
                         <ul className="space-y-2 text-sm text-gray-600">
-                            <li><Link to="/" className="hover:text-primary">Inicio</Link></li>
-                            <li><Link to="/productos" className="hover:text-primary">Productos</Link></li>
-                            <li><a href="https://api.whatsapp.com/send?phone=543758436120" target="_blank" rel="noopener noreferrer" className="hover:text-primary">Contacto</a></li>
+                            <li><Link to="/" className="hover:text-[#1a237e] transition-colors">Inicio</Link></li>
+                            <li><Link to="/productos" className="hover:text-[#1a237e] transition-colors">Productos</Link></li>
+                            <li><a href="https://api.whatsapp.com/send?phone=543758436120" target="_blank" rel="noopener noreferrer" className="hover:text-[#e31c23] transition-colors font-medium">Contacto WhatsApp</a></li>
                         </ul>
                     </div>
 

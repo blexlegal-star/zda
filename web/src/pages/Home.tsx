@@ -92,7 +92,7 @@ export function Home() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
                         <div className="rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] order-2 md:order-1 group">
                             <img
-                                src="/assets/home/about-china.jpg"
+                                src="/assets/home/image-2.webp"
                                 alt="Fábrica en China"
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                             />
