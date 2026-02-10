@@ -4,6 +4,7 @@ import { Footer } from './features/Footer';
 
 import { CartDrawer } from './features/CartDrawer';
 import { FloatingWhatsApp } from './features/FloatingWhatsApp';
+import { CookieConsent } from './features/CookieConsent';
 
 
 export function Layout() {
@@ -16,6 +17,7 @@ export function Layout() {
             </main>
             <Footer />
             <FloatingWhatsApp />
+            <CookieConsent />
         </div>
     );
 }

@@ -8,7 +8,10 @@ export function FloatingWhatsApp() {
 
     useEffect(() => {
         // Fade in effect on mount
-        setIsVisible(true);
+        const timer = requestAnimationFrame(() => {
+            setIsVisible(true);
+        });
+        return () => cancelAnimationFrame(timer);
     }, []);
 
     return (

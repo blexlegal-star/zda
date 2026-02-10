@@ -22,8 +22,8 @@ export function Header() {
     return (
         <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 font-sans transition-all duration-300">
             {/* Top Bar - Slimmer */}
-            <div className="bg-[#1a237e] text-white text-[10px] md:text-xs py-1 px-4 text-center font-medium">
-                <p className="tracking-wide">Envíos a todo el país | Venta Mayorista y Minorista</p>
+            <div className="bg-[#1a237e] text-white text-[10px] md:text-xs py-1.5 px-4 text-center font-medium">
+                <p className="tracking-wide">📦 Envíos gratis en compras mayoristas | 🚀 Directo de fábrica a todo el país</p>
             </div>
 
             <div className="container mx-auto px-4 h-14 md:h-16 flex items-center justify-between gap-6">
