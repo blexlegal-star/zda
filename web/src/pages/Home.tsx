@@ -30,7 +30,7 @@ export function Home() {
                     >
                         Comprá directo de <br />
                         China y disfrutá <br />
-                        <span className="bg-gradient-to-r from-white to-[#e31c23]/80 bg-clip-text text-transparent">ahora!!!</span>
+                        <span className="text-[#e31c23] font-extrabold">ahora!!!</span>
                     </motion.h1>
                 </div>
             </section>
@@ -82,7 +82,7 @@ export function Home() {
                 >
                     <div className="w-1.5 h-12 bg-[#e31c23]" />
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-                        <span className="bg-gradient-to-r from-[#1a237e] to-[#e31c23] bg-clip-text text-transparent">Nosotros</span>
+                        <span className="text-[#1a237e]">Nos</span><span className="text-[#e31c23]">otros</span>
                     </h2>
                 </motion.div>
 
