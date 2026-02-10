@@ -1,6 +1,12 @@
-
+import { motion } from 'framer-motion';
 
 export function Home() {
+    const fadeIn = {
+        initial: { opacity: 0, y: 20 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true },
+        transition: { duration: 0.8, ease: "easeOut" as const }
+    };
 
     return (
         <div className="pb-12">
@@ -16,20 +22,29 @@ export function Home() {
                 </div>
 
                 <div className="relative z-20 container mx-auto px-4 h-full flex flex-col justify-center items-start text-white">
-                    <h1 className="text-4xl md:text-6xl font-bold mb-6 max-w-4xl leading-tight">
+                    <motion.h1
+                        initial={{ opacity: 0, x: -30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="text-4xl md:text-6xl font-bold mb-6 max-w-4xl leading-tight"
+                    >
                         Comprá directo de <br />
                         China y disfrutá <br />
-                        ahora!!!
-                    </h1>
+                        <span className="bg-gradient-to-r from-white to-[#e31c23]/80 bg-clip-text text-transparent">ahora!!!</span>
+                    </motion.h1>
                 </div>
             </section>
 
             {/* Benefits Section */}
             <section className="container mx-auto px-4 py-20 md:py-28">
-                <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 leading-tight">
-                    <span className="text-[#1a237e]">Obtené ahora todos los</span><br />
-                    <span className="text-[#e31c23]">beneficios exclusivos.</span>
-                </h2>
+                <motion.h2
+                    {...fadeIn}
+                    className="text-3xl md:text-5xl font-bold text-center mb-16 leading-tight"
+                >
+                    <span className="bg-gradient-to-r from-[#1a237e] to-[#e31c23] bg-clip-text text-transparent">
+                        Obtené ahora todos los<br />beneficios exclusivos.
+                    </span>
+                </motion.h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
                     {/* Card 1 */}
@@ -61,32 +76,17 @@ export function Home() {
 
             {/* Nosotros Section */}
             <section id="nosotros" className="container mx-auto px-4 py-20 md:py-28">
-                <div className="flex items-center gap-4 mb-16 px-4">
+                <motion.div
+                    {...fadeIn}
+                    className="flex items-center gap-4 mb-16 px-4"
+                >
                     <div className="w-1.5 h-12 bg-[#e31c23]" />
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-                        <span className="text-[#1a237e]">Nos</span><span className="text-[#e31c23]">otros</span>
+                        <span className="bg-gradient-to-r from-[#1a237e] to-[#e31c23] bg-clip-text text-transparent">Nosotros</span>
                     </h2>
-                </div>
+                </motion.div>
 
                 <div className="space-y-24">
-                    {/* Block 1: Right Image */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <div className="space-y-6">
-                            <h3 className="text-3xl font-bold text-black">
-                                Directo desde<br />China
-                            </h3>
-                            <p className="text-gray-600 leading-relaxed text-lg">
-                                Imagínese como si estuviera en<br />las oficinas de China.
-                            </p>
-                        </div>
-                        <div className="rounded-2xl overflow-hidden shadow-2xl">
-                            <img
-                                src="/assets/home/about-factory.jpg"
-                                alt="Oficinas en China"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-                    </div>
 
                     {/* Block 2: Left Image (Text Left in Design, Image Right actually looks like alternating or similar flow, checking design again: "Directo de fabrica" text is left, image right) */}
                     {/* Correcting based on "Directo de fabrica" screenshot: Text Left, Image Right again, but let's see. 
@@ -110,10 +110,13 @@ export function Home() {
                             />
                         </div>
                         <div className="space-y-6 order-1 md:order-2">
-                            <h3 className="text-3xl md:text-4xl font-bold text-[#1a237e] leading-tight">
-                                Alianza estratégica <br />
+                            <motion.h3
+                                {...fadeIn}
+                                className="text-3xl md:text-4xl font-bold leading-tight"
+                            >
+                                <span className="bg-gradient-to-r from-[#1a237e] to-[#1a237e]/70 bg-clip-text text-transparent">Alianza estratégica</span> <br />
                                 <span className="text-gray-900">Directo desde China</span>
-                            </h3>
+                            </motion.h3>
                             <p className="text-gray-600 leading-relaxed text-lg md:text-xl font-light">
                                 Operamos con presencia física en el mercado asiático, garantizando una supervisión rigurosa de cada etapa de producción y logística.
                             </p>
@@ -124,10 +127,13 @@ export function Home() {
                     {/* Block 2: Text Left, Image Right */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
                         <div className="space-y-8">
-                            <h3 className="text-3xl md:text-4xl font-bold text-[#e31c23] leading-tight">
-                                Calidad Certificada <br />
+                            <motion.h3
+                                {...fadeIn}
+                                className="text-3xl md:text-4xl font-bold leading-tight"
+                            >
+                                <span className="bg-gradient-to-r from-[#e31c23] to-[#e31c23]/70 bg-clip-text text-transparent">Calidad Certificada</span> <br />
                                 <span className="text-gray-900">Directo de fábrica</span>
-                            </h3>
+                            </motion.h3>
                             <p className="text-gray-600 leading-relaxed text-lg md:text-xl font-light">
                                 Eliminamos intermediarios para ofrecerte repuestos de alto rendimiento con estándares internacionales y precios altamente competitivos.
                             </p>
