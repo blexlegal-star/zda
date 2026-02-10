@@ -1,11 +1,30 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { ShoppingCart } from 'lucide-react';
 import { products, categories, type Product } from '@/data/products';
 import { cn } from '@/lib/utils';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 export function Products() {
+    const [searchParams, setSearchParams] = useSearchParams();
     const [selectedCategory, setSelectedCategory] = useState<string>('all');
+
+    useEffect(() => {
+        const category = searchParams.get('category');
+        if (category) {
+            setSelectedCategory(category);
+        } else {
+            setSelectedCategory('all');
+        }
+    }, [searchParams]);
+
+    const handleCategoryChange = (categoryId: string) => {
+        setSelectedCategory(categoryId);
+        if (categoryId === 'all') {
+            setSearchParams({});
+        } else {
+            setSearchParams({ category: categoryId });
+        }
+    };
 
     const filteredProducts = useMemo(() => {
         if (selectedCategory === 'all') return products;
@@ -22,7 +41,7 @@ export function Products() {
                         <ul className="space-y-2">
                             <li>
                                 <button
-                                    onClick={() => setSelectedCategory('all')}
+                                    onClick={() => handleCategoryChange('all')}
                                     className={cn(
                                         "w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors",
                                         selectedCategory === 'all'
@@ -36,7 +55,7 @@ export function Products() {
                             {categories.map((cat) => (
                                 <li key={cat.id}>
                                     <button
-                                        onClick={() => setSelectedCategory(cat.id)}
+                                        onClick={() => handleCategoryChange(cat.id)}
                                         className={cn(
                                             "w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors",
                                             selectedCategory === cat.id

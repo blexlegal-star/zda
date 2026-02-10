@@ -9,10 +9,15 @@ export function CartDrawer() {
     const generateWhatsAppLink = () => {
         if (items.length === 0) return '';
 
-        let message = "Hola Samuel, mi nombre es ... y te consulto lo siguiente:%0A%0A";
-        items.forEach(item => {
-            message += `* ${item.quantity}x ${item.name} (COD: ${item.id})%0A`;
+        let message = "¡Hola! Me interesa cotizar los siguientes productos:%0A%0A";
+
+        items.forEach((item, index) => {
+            message += `${index + 1}. ${item.name}%0A`;
+            message += `   Cantidad: ${item.quantity}%0A`;
+            message += `   Código: ${item.id}%0A%0A`;
         });
+
+        message += "Espero su respuesta. ¡Gracias!";
 
         return `https://api.whatsapp.com/send?phone=543758436120&text=${message}`;
     };

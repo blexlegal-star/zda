@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Truck, Shield, Package, Award } from 'lucide-react';
 
 export function Home() {
     const fadeIn = {
@@ -9,157 +11,176 @@ export function Home() {
     };
 
     return (
-        <div className="pb-12">
-            {/* Hero Section */}
-            <section className="relative h-[600px] w-full overflow-hidden">
+        <div className="bg-white">
+            {/* Hero Section - Full Screen with Premium Aesthetics */}
+            <section className="relative min-h-screen max-h-[900px] w-full overflow-hidden">
+                {/* Background Image with Overlay */}
                 <div className="absolute inset-0">
                     <img
-                        src="/assets/home/hero-bg.jpg"
+                        src="/assets/home/hero-bg-new.avif"
                         alt="ZDA Moto Parts"
                         className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-black/50" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30" />
                 </div>
 
-                <div className="relative z-20 container mx-auto px-4 h-full flex flex-col justify-center items-start text-white">
-                    <motion.h1
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="text-4xl md:text-6xl font-bold mb-6 max-w-4xl leading-tight"
+                {/* Hero Content */}
+                <div className="relative z-20 container mx-auto px-4 h-full flex flex-col items-center justify-center max-w-7xl text-center pt-32 md:pt-40">
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                        className="max-w-5xl"
                     >
-                        Comprá directo de <br />
-                        China y disfrutá <br />
-                        <span className="text-[#e31c23] font-extrabold">ahora!!!</span>
-                    </motion.h1>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white">
+                            Repuestos de Moto
+                            <br />
+                            Directo de Fábrica
+                        </h1>
+                        <p className="text-xl md:text-2xl lg:text-3xl mb-12 text-gray-200 font-light max-w-3xl mx-auto leading-relaxed">
+                            Importación directa desde China. Calidad certificada internacional a precios imbatibles.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Link
+                                to="/productos"
+                                className="bg-gradient-to-r from-[#1a237e] to-[#e91e63] hover:from-[#283593] hover:to-[#d81b60] text-white font-bold px-8 py-3 rounded-full text-base transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                            >
+                                Ver Catálogo Completo
+                            </Link>
+                        </div>
+                    </motion.div>
                 </div>
             </section>
 
-            {/* Benefits Section */}
-            <section className="container mx-auto px-4 py-20 md:py-28">
-                <motion.h2
-                    {...fadeIn}
-                    className="text-3xl md:text-5xl font-bold text-center mb-16 leading-tight"
-                >
-                    <span className="bg-gradient-to-r from-[#1a237e] to-[#e31c23] bg-clip-text text-transparent">
-                        Obtené ahora todos los<br />beneficios exclusivos.
-                    </span>
-                </motion.h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                    {/* Card 1 */}
-                    <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
-                        <img
-                            src="/assets/home/benefits-racing.jpg"
-                            alt="Racing"
-                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                        />
-                    </div>
-                    {/* Card 2 */}
-                    <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
-                        <img
-                            src="/assets/home/benefits-team.jpg"
-                            alt="Team"
-                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                        />
-                    </div>
-                    {/* Card 3 */}
-                    <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
-                        <img
-                            src="/assets/home/benefits-office.jpg"
-                            alt="Office"
-                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                        />
+            {/* Trust Bar - Premium Features */}
+            <section className="bg-gradient-to-r from-[#1a237e] to-[#283593] text-white py-12 relative z-30 shadow-xl">
+                <div className="container mx-auto px-4">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 max-w-7xl mx-auto">
+                        {[
+                            { icon: Truck, title: 'Envíos Gratis', subtitle: 'En compras mayoristas', color: 'bg-white/10' },
+                            { icon: Shield, title: 'Garantía', subtitle: 'Directo de fábrica', color: 'bg-white/10' },
+                            { icon: Package, title: 'Stock', subtitle: 'Permanente', color: 'bg-white/10' },
+                            { icon: Award, title: 'Calidad', subtitle: 'Certificada ISO', color: 'bg-white/10' }
+                        ].map((feature, i) => (
+                            <motion.div
+                                key={i}
+                                {...fadeIn}
+                                transition={{ delay: i * 0.1 }}
+                                className="flex flex-col items-center text-center group p-4 rounded-2xl hover:bg-white/5 transition-colors duration-300"
+                            >
+                                <div className={`${feature.color} rounded-full p-4 mb-4 transform group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                                    <feature.icon className="w-8 h-8 text-white" strokeWidth={1.5} />
+                                </div>
+                                <h3 className="font-bold text-white text-lg mb-1">{feature.title}</h3>
+                                <p className="text-sm text-white/70">{feature.subtitle}</p>
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
             </section>
 
-            {/* Nosotros Section */}
-            <section id="nosotros" className="container mx-auto px-4 py-20 md:py-28">
-                <motion.div
-                    {...fadeIn}
-                    className="flex items-center gap-4 mb-16 px-4"
-                >
-                    <div className="w-1.5 h-12 bg-[#e31c23]" />
-                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-                        <span className="text-[#1a237e]">Nos</span><span className="text-[#e31c23]">otros</span>
+            {/* Visual Showcase - Spacious Layout */}
+            <section className="container mx-auto px-4 py-32 md:py-40 bg-white">
+                <motion.div {...fadeIn} className="text-center mb-24 max-w-4xl mx-auto">
+                    <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-tight text-gray-900 tracking-tight">
+                        Calidad <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1a237e] to-[#e91e63]">Profesional</span>
                     </h2>
+                    <p className="text-xl md:text-2xl text-gray-500 leading-relaxed font-light">
+                        Trabajamos con las mejores fábricas para traerte repuestos de alto rendimiento.
+                    </p>
                 </motion.div>
 
-                <div className="space-y-24">
-
-                    {/* Block 1: Image Left, Text Right */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
-                        <div className="rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] order-2 md:order-1 group">
-                            <img
-                                src="/assets/home/image-2.webp"
-                                alt="Fábrica en China"
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                            />
-                        </div>
-                        <div className="space-y-6 order-1 md:order-2">
-                            <motion.h3
-                                {...fadeIn}
-                                className="text-3xl md:text-4xl font-bold leading-tight"
-                            >
-                                <span className="bg-gradient-to-r from-[#1a237e] to-[#1a237e]/70 bg-clip-text text-transparent">Alianza estratégica</span> <br />
-                                <span className="text-gray-900">Directo desde China</span>
-                            </motion.h3>
-                            <div className="space-y-4">
-                                <p className="text-gray-600 leading-relaxed text-lg font-light">
-                                    Operamos con <strong className="text-gray-900">presencia física directa en China</strong>, lo que nos permite supervisar personalmente cada etapa del proceso: desde la selección de materiales en fábrica hasta el control de calidad pre-embarque.
-                                </p>
-                                <p className="text-gray-600 leading-relaxed text-lg font-light">
-                                    Esta proximidad estratégica nos garantiza <strong className="text-gray-900">tiempos de respuesta inmediatos</strong> y la capacidad de adaptar pedidos a las necesidades específicas del mercado argentino y latinoamericano.
-                                </p>
-                            </div>
-                        </div>
+                {/* Hero Image - Full Width Feel */}
+                <motion.div
+                    {...fadeIn}
+                    className="mb-24 rounded-[2rem] overflow-hidden shadow-2xl shadow-blue-900/5 mx-auto max-w-[1400px]"
+                >
+                    <div className="relative aspect-[21/9] overflow-hidden">
+                        <img
+                            src="/assets/home/image-1.webp"
+                            alt="ZDA Quality Manufacturing"
+                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000 ease-out"
+                        />
                     </div>
+                </motion.div>
 
-
-                    {/* Block 2: Text Left, Image Right */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
-                        <div className="space-y-8">
-                            <motion.h3
-                                {...fadeIn}
-                                className="text-3xl md:text-4xl font-bold leading-tight"
-                            >
-                                <span className="bg-gradient-to-r from-[#e31c23] to-[#e31c23]/70 bg-clip-text text-transparent">Calidad Certificada</span> <br />
-                                <span className="text-gray-900">Directo de fábrica</span>
-                            </motion.h3>
-                            <div className="space-y-4">
-                                <p className="text-gray-600 leading-relaxed text-lg font-light">
-                                    Al eliminar intermediarios, te ofrecemos <strong className="text-gray-900">repuestos certificados OEM y aftermarket premium</strong> con estándares internacionales de calidad (ISO 9001, TS 16949) a precios que desafían al mercado tradicional.
-                                </p>
-                                <p className="text-gray-600 leading-relaxed text-lg font-light">
-                                    Cada producto pasa por rigurosos controles de calidad y cuenta con <strong className="text-gray-900">garantía de fábrica</strong>, asegurando tu inversión y la satisfacción de tus clientes finales.
-                                </p>
-                                <ul className="space-y-2 text-gray-600 text-base">
-                                    <li className="flex items-start gap-2">
-                                        <span className="text-[#e31c23] font-bold mt-1">✓</span>
-                                        <span>Importación directa sin intermediarios</span>
-                                    </li>
-                                    <li className="flex items-start gap-2">
-                                        <span className="text-[#e31c23] font-bold mt-1">✓</span>
-                                        <span>Certificaciones internacionales verificables</span>
-                                    </li>
-                                    <li className="flex items-start gap-2">
-                                        <span className="text-[#e31c23] font-bold mt-1">✓</span>
-                                        <span>Stock permanente y logística ágil</span>
-                                    </li>
-                                </ul>
+                {/* Grid Layout - Balanced */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-[1400px] mx-auto mb-24">
+                    {[
+                        { src: '/assets/home/image-2.webp', alt: 'Control de Calidad' },
+                        { src: '/assets/home/image-3.webp', alt: 'Selección Premium' }
+                    ].map((img, i) => (
+                        <motion.div
+                            key={i}
+                            {...fadeIn}
+                            transition={{ delay: i * 0.2 }}
+                            className="rounded-[2rem] overflow-hidden shadow-xl shadow-blue-900/5 group"
+                        >
+                            <div className="relative aspect-[4/3] overflow-hidden">
+                                <img
+                                    src={img.src}
+                                    alt={img.alt}
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                                />
                             </div>
-                        </div>
-                        <div className="rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] group">
-                            <img
-                                src="/assets/home/about-store.jpg"
-                                alt="Local ZDA"
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                            />
-                        </div>
-                    </div>
+                        </motion.div>
+                    ))}
+                </div>
+
+                {/* Three Column Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {[
+                        { src: '/assets/home/image-4.webp', alt: 'Wide Product Range' },
+                        { src: '/assets/home/image-5.webp', alt: 'Professional Service' },
+                        { src: '/assets/home/benefits-racing.jpg', alt: 'Racing Quality Parts' }
+                    ].map((img, i) => (
+                        <motion.div
+                            key={i}
+                            {...fadeIn}
+                            transition={{ delay: i * 0.15 }}
+                            className="rounded-2xl overflow-hidden shadow-lg group"
+                        >
+                            <div className="relative aspect-square overflow-hidden">
+                                <img
+                                    src={img.src}
+                                    alt={img.alt}
+                                    loading="lazy"
+                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                                />
+                            </div>
+                        </motion.div>
+                    ))}
                 </div>
             </section>
-        </div>
+
+            {/* CTA Section - Premium Gradient */}
+            <section className="relative overflow-hidden py-24 md:py-32">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#1a237e] via-[#283593] to-[#e31c23]" />
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
+
+                <div className="relative z-10 container mx-auto px-4 text-center">
+                    <motion.div
+                        {...fadeIn}
+                        className="max-w-4xl mx-auto"
+                    >
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-white leading-tight">
+                            ¿Listo para mejorar tu negocio?
+                        </h2>
+                        <p className="text-xl md:text-2xl mb-12 text-white/90 font-light max-w-3xl mx-auto">
+                            Contactanos hoy y descubrí cómo podemos ayudarte con repuestos de calidad certificada a precios directos de fábrica
+                        </p>
+                        <a
+                            href="https://api.whatsapp.com/send?phone=543758436120"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center bg-white text-[#1a237e] px-12 py-6 rounded-full font-bold text-xl hover:bg-gray-50 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 shadow-2xl"
+                        >
+                            Contactar Ahora
+                        </a>
+                    </motion.div>
+                </div>
+            </section>
+        </div >
     );
 }
