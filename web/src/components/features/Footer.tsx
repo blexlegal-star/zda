@@ -26,7 +26,7 @@ export function Footer() {
                     <div>
                         <h3 className="font-bold text-gray-900 mb-4">Contacto</h3>
                         <p className="text-sm text-gray-600 mb-2">WhatsApp: +54 3758 43-6120</p>
-                        <p className="text-sm text-gray-600">Email: contacto@zda.com.ar</p>
+                        <p className="text-sm text-gray-600">Email: contacto@zdadragon.com</p>
                     </div>
                 </div>
 

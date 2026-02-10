@@ -105,9 +105,14 @@ export function Home() {
                                 <span className="bg-gradient-to-r from-[#1a237e] to-[#1a237e]/70 bg-clip-text text-transparent">Alianza estratégica</span> <br />
                                 <span className="text-gray-900">Directo desde China</span>
                             </motion.h3>
-                            <p className="text-gray-600 leading-relaxed text-lg md:text-xl font-light">
-                                Operamos con presencia física en el mercado asiático, garantizando una supervisión rigurosa de cada etapa de producción y logística.
-                            </p>
+                            <div className="space-y-4">
+                                <p className="text-gray-600 leading-relaxed text-lg font-light">
+                                    Operamos con <strong className="text-gray-900">presencia física directa en China</strong>, lo que nos permite supervisar personalmente cada etapa del proceso: desde la selección de materiales en fábrica hasta el control de calidad pre-embarque.
+                                </p>
+                                <p className="text-gray-600 leading-relaxed text-lg font-light">
+                                    Esta proximidad estratégica nos garantiza <strong className="text-gray-900">tiempos de respuesta inmediatos</strong> y la capacidad de adaptar pedidos a las necesidades específicas del mercado argentino y latinoamericano.
+                                </p>
+                            </div>
                         </div>
                     </div>
 
@@ -122,17 +127,28 @@ export function Home() {
                                 <span className="bg-gradient-to-r from-[#e31c23] to-[#e31c23]/70 bg-clip-text text-transparent">Calidad Certificada</span> <br />
                                 <span className="text-gray-900">Directo de fábrica</span>
                             </motion.h3>
-                            <p className="text-gray-600 leading-relaxed text-lg md:text-xl font-light">
-                                Eliminamos intermediarios para ofrecerte repuestos de alto rendimiento con estándares internacionales y precios altamente competitivos.
-                            </p>
-                            <a
-                                href="https://api.whatsapp.com/send?phone=543758436120"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center bg-[#25D366] text-white px-8 py-4 rounded-full font-bold shadow-lg shadow-[#25D366]/20 hover:bg-[#128c7e] hover:-translate-y-1 transition-all duration-300"
-                            >
-                                Contactar vía WhatsApp
-                            </a>
+                            <div className="space-y-4">
+                                <p className="text-gray-600 leading-relaxed text-lg font-light">
+                                    Al eliminar intermediarios, te ofrecemos <strong className="text-gray-900">repuestos certificados OEM y aftermarket premium</strong> con estándares internacionales de calidad (ISO 9001, TS 16949) a precios que desafían al mercado tradicional.
+                                </p>
+                                <p className="text-gray-600 leading-relaxed text-lg font-light">
+                                    Cada producto pasa por rigurosos controles de calidad y cuenta con <strong className="text-gray-900">garantía de fábrica</strong>, asegurando tu inversión y la satisfacción de tus clientes finales.
+                                </p>
+                                <ul className="space-y-2 text-gray-600 text-base">
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-[#e31c23] font-bold mt-1">✓</span>
+                                        <span>Importación directa sin intermediarios</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-[#e31c23] font-bold mt-1">✓</span>
+                                        <span>Certificaciones internacionales verificables</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-[#e31c23] font-bold mt-1">✓</span>
+                                        <span>Stock permanente y logística ágil</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         <div className="rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] group">
                             <img
