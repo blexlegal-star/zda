@@ -40,34 +40,18 @@ export function Header() {
                     <img src="/logo.png" alt="ZDA" className="h-10 md:h-12 w-auto object-contain" />
                 </Link>
 
-                {/* Header Links - Desktop with Dropdown */}
+                {/* Header Links - Desktop Horizontal Menu */}
                 <div className="hidden md:flex items-center gap-6 mr-4">
-                    {/* Productos Dropdown */}
-                    <div className="relative group">
-                        <button className="text-primary font-bold hover:text-primary/80 transition-colors flex items-center gap-1">
-                            Productos
-                            <ChevronDown size={16} className="group-hover:rotate-180 transition-transform" />
+                    {categories.map((category) => (
+                        <button
+                            key={category.id}
+                            onClick={() => handleCategoryClick(category.id)}
+                            className="text-primary font-bold hover:text-primary/80 transition-colors text-sm whitespace-nowrap"
+                        >
+                            {category.name}
                         </button>
-                        {/* Dropdown Menu */}
-                        <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden">
-                            {categories.map((category) => (
-                                <button
-                                    key={category.id}
-                                    onClick={() => handleCategoryClick(category.id)}
-                                    className="w-full text-left px-4 py-3 hover:bg-gray-50 text-gray-700 hover:text-[#1a237e] font-medium text-sm border-b border-gray-100 last:border-b-0 transition-colors"
-                                >
-                                    {category.name}
-                                </button>
-                            ))}
-                            <Link
-                                to="/productos"
-                                className="block w-full text-left px-4 py-3 hover:bg-[#1a237e] hover:text-white text-[#e31c23] font-bold text-sm transition-colors"
-                            >
-                                Ver Todos →
-                            </Link>
-                        </div>
-                    </div>
-                    <a href="/#nosotros" className="text-primary font-bold hover:text-primary/80 transition-colors">Nosotros</a>
+                    ))}
+                    <a href="/#nosotros" className="text-primary font-bold hover:text-primary/80 transition-colors text-sm">Nosotros</a>
                 </div>
 
                 {/* Search Bar - Desktop - Slimmer and more modern */}
