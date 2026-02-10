@@ -1,11 +1,13 @@
-import { Search, ShoppingCart, Menu } from 'lucide-react';
+import { Search, ShoppingCart, Menu, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { useCartStore } from '@/hooks/useCartStore';
+import { categories } from '@/data/products';
 
 export function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
     const navigate = useNavigate();
     const { toggleCart, items } = useCartStore();
@@ -17,6 +19,12 @@ export function Header() {
             navigate(`/productos?search=${encodeURIComponent(searchTerm)}`);
             setIsMenuOpen(false);
         }
+    };
+
+    const handleCategoryClick = (categoryId: string) => {
+        navigate(`/productos?categoria=${categoryId}`);
+        setIsMenuOpen(false);
+        setIsCategoriesOpen(false);
     };
 
     return (
@@ -32,9 +40,33 @@ export function Header() {
                     <img src="/logo.png" alt="ZDA" className="h-10 md:h-12 w-auto object-contain" />
                 </Link>
 
-                {/* Header Links */}
+                {/* Header Links - Desktop with Dropdown */}
                 <div className="hidden md:flex items-center gap-6 mr-4">
-                    <Link to="/productos" className="text-primary font-bold hover:text-primary/80 transition-colors">Productos</Link>
+                    {/* Productos Dropdown */}
+                    <div className="relative group">
+                        <button className="text-primary font-bold hover:text-primary/80 transition-colors flex items-center gap-1">
+                            Productos
+                            <ChevronDown size={16} className="group-hover:rotate-180 transition-transform" />
+                        </button>
+                        {/* Dropdown Menu */}
+                        <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden">
+                            {categories.map((category) => (
+                                <button
+                                    key={category.id}
+                                    onClick={() => handleCategoryClick(category.id)}
+                                    className="w-full text-left px-4 py-3 hover:bg-gray-50 text-gray-700 hover:text-[#1a237e] font-medium text-sm border-b border-gray-100 last:border-b-0 transition-colors"
+                                >
+                                    {category.name}
+                                </button>
+                            ))}
+                            <Link
+                                to="/productos"
+                                className="block w-full text-left px-4 py-3 hover:bg-[#1a237e] hover:text-white text-[#e31c23] font-bold text-sm transition-colors"
+                            >
+                                Ver Todos →
+                            </Link>
+                        </div>
+                    </div>
                     <a href="/#nosotros" className="text-primary font-bold hover:text-primary/80 transition-colors">Nosotros</a>
                 </div>
 
@@ -90,7 +122,36 @@ export function Header() {
                     </button>
                 </form>
                 <nav className="flex flex-col gap-2">
-                    <Link to="/productos" className="py-2 text-primary font-bold text-sm border-b border-gray-100">Productos</Link>
+                    {/* Productos con Categorías Expandibles */}
+                    <div>
+                        <button
+                            onClick={() => setIsCategoriesOpen(!isCategoriesOpen)}
+                            className="w-full flex items-center justify-between py-2 text-primary font-bold text-sm border-b border-gray-100"
+                        >
+                            Productos
+                            <ChevronDown size={16} className={cn("transition-transform", isCategoriesOpen && "rotate-180")} />
+                        </button>
+                        {isCategoriesOpen && (
+                            <div className="pl-4 mt-2 space-y-2">
+                                {categories.map((category) => (
+                                    <button
+                                        key={category.id}
+                                        onClick={() => handleCategoryClick(category.id)}
+                                        className="block w-full text-left py-1.5 text-gray-700 text-sm hover:text-[#1a237e] font-medium"
+                                    >
+                                        {category.name}
+                                    </button>
+                                ))}
+                                <Link
+                                    to="/productos"
+                                    onClick={() => setIsMenuOpen(false)}
+                                    className="block w-full text-left py-1.5 text-[#e31c23] text-sm font-bold"
+                                >
+                                    Ver Todos →
+                                </Link>
+                            </div>
+                        )}
+                    </div>
                     <a href="/#nosotros" className="py-2 text-primary font-bold text-sm border-b border-gray-100">Nosotros</a>
                 </nav>
             </div>
