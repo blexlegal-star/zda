@@ -25,10 +25,10 @@ export function Home() {
             </section>
 
             {/* Benefits Section */}
-            <section className="container mx-auto px-4 py-16">
-                <h2 className="text-3xl md:text-4xl font-bold text-center text-[#1a237e] mb-12">
-                    Obtené ahora todos los beneficios<br />
-                    <span className="text-[#e31c23]">exclusivos.</span>
+            <section className="container mx-auto px-4 py-20 md:py-28">
+                <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 leading-tight">
+                    <span className="text-[#1a237e]">Obtené ahora todos los</span><br />
+                    <span className="text-[#e31c23]">beneficios exclusivos.</span>
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -60,10 +60,13 @@ export function Home() {
             </section>
 
             {/* Nosotros Section */}
-            <section id="nosotros" className="container mx-auto px-4 py-16">
-                <h2 className="text-3xl md:text-4xl font-bold mb-12 border-l-4 border-primary pl-4">
-                    <span className="text-[#1a237e]">Nos</span><span className="text-[#e31c23]">otros</span>
-                </h2>
+            <section id="nosotros" className="container mx-auto px-4 py-20 md:py-28">
+                <div className="flex items-center gap-4 mb-16 px-4">
+                    <div className="w-1.5 h-12 bg-[#e31c23]" />
+                    <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+                        <span className="text-[#1a237e]">Nos</span><span className="text-[#e31c23]">otros</span>
+                    </h2>
+                </div>
 
                 <div className="space-y-24">
                     {/* Block 1: Right Image */}
@@ -97,51 +100,51 @@ export function Home() {
                        So I will implement it exactly like that alternating.
                     */}
 
-                    {/* Re-implementing Block 1 as Image Left, Text Right based on screenshot */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <div className="rounded-2xl overflow-hidden shadow-2xl order-2 md:order-1">
+                    {/* Block 1: Image Left, Text Right */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
+                        <div className="rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] order-2 md:order-1 group">
                             <img
                                 src="/assets/home/about-factory.jpg"
-                                alt="Oficinas en China"
-                                className="w-full h-full object-cover"
+                                alt="Fábrica en China"
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                             />
                         </div>
                         <div className="space-y-6 order-1 md:order-2">
-                            <h3 className="text-3xl font-bold text-black">
-                                Directo desde<br />China
+                            <h3 className="text-3xl md:text-4xl font-bold text-[#1a237e] leading-tight">
+                                Alianza estratégica <br />
+                                <span className="text-gray-900">Directo desde China</span>
                             </h3>
-                            <p className="text-gray-600 leading-relaxed text-lg">
-                                Imagínese como si estuviera en<br />las oficinas de China.
+                            <p className="text-gray-600 leading-relaxed text-lg md:text-xl font-light">
+                                Operamos con presencia física en el mercado asiático, garantizando una supervisión rigurosa de cada etapa de producción y logística.
                             </p>
                         </div>
                     </div>
 
 
                     {/* Block 2: Text Left, Image Right */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <div className="space-y-6">
-                            <h3 className="text-3xl font-bold text-black">
-                                Directo de<br />fábrica
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
+                        <div className="space-y-8">
+                            <h3 className="text-3xl md:text-4xl font-bold text-[#e31c23] leading-tight">
+                                Calidad Certificada <br />
+                                <span className="text-gray-900">Directo de fábrica</span>
                             </h3>
-                            <p className="text-gray-600 leading-relaxed text-lg">
-                                Ofrecemos productos con precios<br />
-                                competitivos y estándares de<br />
-                                calidad excepcionales.
+                            <p className="text-gray-600 leading-relaxed text-lg md:text-xl font-light">
+                                Eliminamos intermediarios para ofrecerte repuestos de alto rendimiento con estándares internacionales y precios altamente competitivos.
                             </p>
                             <a
                                 href="https://api.whatsapp.com/send?phone=543758436120"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block bg-[#25D366] text-white px-6 py-2 rounded-md font-bold hover:bg-[#25D366]/90 transition-colors"
+                                className="inline-flex items-center justify-center bg-[#25D366] text-white px-8 py-4 rounded-full font-bold shadow-lg shadow-[#25D366]/20 hover:bg-[#128c7e] hover:-translate-y-1 transition-all duration-300"
                             >
-                                Whatsapp
+                                Contactar vía WhatsApp
                             </a>
                         </div>
-                        <div className="rounded-2xl overflow-hidden shadow-2xl">
+                        <div className="rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] group">
                             <img
                                 src="/assets/home/about-store.jpg"
                                 alt="Local ZDA"
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                             />
                         </div>
                     </div>

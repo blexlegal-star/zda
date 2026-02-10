@@ -20,16 +20,16 @@ export function Header() {
     };
 
     return (
-        <header className="sticky top-0 z-50 bg-white shadow-sm font-sans">
-            {/* Top Bar */}
-            <div className="bg-primary text-white text-xs py-1 px-4 text-center">
-                <p>Envíos a todo el país | Venta Mayorista y Minorista</p>
+        <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 font-sans transition-all duration-300">
+            {/* Top Bar - Slimmer */}
+            <div className="bg-[#1a237e] text-white text-[10px] md:text-xs py-1 px-4 text-center font-medium">
+                <p className="tracking-wide">Envíos a todo el país | Venta Mayorista y Minorista</p>
             </div>
 
-            <div className="container mx-auto px-4 py-3 flex items-center justify-between gap-4">
-                {/* Logo */}
-                <Link to="/" className="flex-shrink-0">
-                    <img src="/logo.png" alt="ZDA" className="h-12 w-auto object-contain" />
+            <div className="container mx-auto px-4 h-14 md:h-16 flex items-center justify-between gap-6">
+                {/* Logo - Consistent height */}
+                <Link to="/" className="flex-shrink-0 transition-opacity hover:opacity-80">
+                    <img src="/logo.png" alt="ZDA" className="h-8 md:h-10 w-auto object-contain" />
                 </Link>
 
                 {/* Header Links */}
@@ -38,38 +38,39 @@ export function Header() {
                     <a href="/#nosotros" className="text-primary font-bold hover:text-primary/80 transition-colors">Nosotros</a>
                 </div>
 
-                {/* Search Bar - Desktop */}
-                <form onSubmit={handleSearch} className="hidden md:flex flex-1 max-w-xl mx-4 relative">
+                {/* Search Bar - Desktop - Slimmer and more modern */}
+                <form onSubmit={handleSearch} className="hidden lg:flex flex-1 max-w-lg relative group">
                     <input
                         type="text"
                         placeholder="Buscar repuestos..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full border border-gray-300 rounded-l-full px-6 py-2 focus:outline-none focus:ring-2 focus:ring-primary/50"
+                        className="w-full bg-gray-50 border border-gray-200 rounded-full pl-5 pr-12 py-1.5 text-sm focus:outline-none focus:bg-white focus:ring-2 focus:ring-[#1a237e]/10 focus:border-[#1a237e] transition-all"
                     />
-                    <button type="submit" className="bg-primary text-white px-6 py-2 rounded-r-full hover:bg-primary/90 transition-colors">
-                        <Search size={20} />
+                    <button type="submit" className="absolute right-1 top-1/2 -translate-y-1/2 bg-[#1a237e] text-white p-1.5 rounded-full hover:bg-[#e31c23] transition-colors">
+                        <Search size={14} />
                     </button>
                 </form>
 
                 {/* Actions */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 md:gap-4">
                     <button
                         onClick={toggleCart}
-                        className="relative text-gray-700 hover:text-primary transition-colors p-2"
+                        className="relative text-gray-700 hover:text-[#1a237e] transition-colors p-2 rounded-full hover:bg-gray-100"
                     >
-                        <ShoppingCart size={24} />
+                        <ShoppingCart size={22} />
                         {itemCount > 0 && (
-                            <span className="absolute -top-1 -right-1 bg-primary text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full border-2 border-white">
+                            <span className="absolute top-1 right-1 bg-[#e31c23] text-white text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full border border-white">
                                 {itemCount}
                             </span>
                         )}
                     </button>
 
-
-
-                    <button className="md:hidden text-gray-700" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                        <Menu size={28} />
+                    <button
+                        className="md:hidden text-gray-700 p-2 hover:bg-gray-100 rounded-full"
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    >
+                        <Menu size={24} />
                     </button>
                 </div>
             </div>

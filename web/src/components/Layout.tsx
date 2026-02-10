@@ -11,7 +11,7 @@ export function Layout() {
         <div className="min-h-screen flex flex-col bg-white">
             <Header />
             <CartDrawer />
-            <main className="flex-grow pt-[80px] md:pt-[88px]">
+            <main className="flex-grow pt-14 md:pt-16">
                 <Outlet />
             </main>
             <Footer />
