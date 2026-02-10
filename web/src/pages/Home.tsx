@@ -27,7 +27,8 @@ export function Home() {
             {/* Benefits Section */}
             <section className="container mx-auto px-4 py-16">
                 <h2 className="text-3xl md:text-4xl font-bold text-center text-[#1a237e] mb-12">
-                    Obtené ahora todos los beneficios<br />exclusivos.
+                    Obtené ahora todos los beneficios<br />
+                    <span className="text-[#e31c23]">exclusivos.</span>
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -60,8 +61,8 @@ export function Home() {
 
             {/* Nosotros Section */}
             <section id="nosotros" className="container mx-auto px-4 py-16">
-                <h2 className="text-3xl md:text-4xl font-bold text-[#1a237e] mb-12 border-l-4 border-primary pl-4">
-                    Nosotros
+                <h2 className="text-3xl md:text-4xl font-bold mb-12 border-l-4 border-primary pl-4">
+                    <span className="text-[#1a237e]">Nos</span><span className="text-[#e31c23]">otros</span>
                 </h2>
 
                 <div className="space-y-24">
