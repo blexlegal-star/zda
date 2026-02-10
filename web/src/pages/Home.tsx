@@ -88,23 +88,11 @@ export function Home() {
 
                 <div className="space-y-24">
 
-                    {/* Block 2: Left Image (Text Left in Design, Image Right actually looks like alternating or similar flow, checking design again: "Directo de fabrica" text is left, image right) */}
-                    {/* Correcting based on "Directo de fabrica" screenshot: Text Left, Image Right again, but let's see. 
-                       Actually the screenshot shows:
-                       Top row: Image Left, Text Right ("Directo desde China")
-                       Bottom row: Text Left ("Directo de fabrica"), Image Right? 
-                       Wait, the user screenshot shows:
-                       [Image] [Text: Directo desde China]
-                       [Text: Directo de fabrica] [Image]
-                       
-                       So I will implement it exactly like that alternating.
-                    */}
-
                     {/* Block 1: Image Left, Text Right */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
                         <div className="rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] order-2 md:order-1 group">
                             <img
-                                src="/assets/home/about-factory.jpg"
+                                src="/assets/home/about-china.jpg"
                                 alt="Fábrica en China"
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                             />
