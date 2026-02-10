@@ -1,8 +1,8 @@
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ShoppingCart, Check, Truck, ShieldCheck, CreditCard } from 'lucide-react';
-import { products, categories } from '@/data/products';
+import { products, categories } from '../data/products';
 import { useState } from 'react';
-import { useCartStore } from '@/hooks/useCartStore';
+import { useCartStore } from '../hooks/useCartStore';
 
 export function ProductDetail() {
     const { id } = useParams<{ id: string }>();

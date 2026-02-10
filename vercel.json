@@ -1,5 +1,11 @@
 {
     "projectSettings": {
         "rootDirectory": "web"
-    }
+    },
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/web/index.html"
+        }
+    ]
 }
