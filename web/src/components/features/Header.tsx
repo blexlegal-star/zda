@@ -29,7 +29,7 @@ export function Header() {
             <div className="container mx-auto px-4 h-14 md:h-16 flex items-center justify-between gap-6">
                 {/* Logo - Consistent height */}
                 <Link to="/" className="flex-shrink-0 transition-opacity hover:opacity-80">
-                    <img src="/logo.png" alt="ZDA" className="h-8 md:h-10 w-auto object-contain" />
+                    <img src="/logo.png" alt="ZDA" className="h-10 md:h-12 w-auto object-contain" />
                 </Link>
 
                 {/* Header Links */}
