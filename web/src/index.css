@@ -1,0 +1,38 @@
+/* CSS build is currently broken due to environment configuration. 
+   Using Tailwind CDN in index.html for preview. 
+*/
+
+/* Custom animations for Floating WhatsApp */
+@keyframes float {
+   0% {
+      transform: translateY(0px);
+   }
+
+   50% {
+      transform: translateY(-6px);
+   }
+
+   100% {
+      transform: translateY(0px);
+   }
+}
+
+.animate-float {
+   animation: float 4s ease-in-out infinite;
+}
+
+@keyframes fade-in {
+   from {
+      opacity: 0;
+      transform: translateY(10px);
+   }
+
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+.animate-fade-in {
+   animation: fade-in 0.8s ease-out forwards;
+}
